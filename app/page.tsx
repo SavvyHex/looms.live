@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <main className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 transition-colors duration-750">
       <Navbar />
       <div className="flex-1 flex flex-col items-center justify-center p-4">
         <h1 className="text-8xl font-bold mb-12 tracking-tight">
@@ -16,9 +16,9 @@ export default function Home() {
         </h1>
         <Link 
           href="/today"
-          className="text-xl px-12 py-5 bg-[#4285F4] text-white rounded-full hover:bg-[#2b5797] transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
+          className="text-xl px-12 py-5 bg-[#4285F4] text-white rounded-full hover:bg-[#2b5797] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transform hover:-translate-y-0.5"
         >
-          view today&apos;s looms
+          View Today's Looms
         </Link>
       </div>
     </main>
