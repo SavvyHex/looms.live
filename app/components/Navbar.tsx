@@ -7,20 +7,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold">
-              <span className="text-[#4285F4]">l</span>
-              <span className="text-[#EA4335]">o</span>
-              <span className="text-[#FBBC05]">o</span>
-              <span className="text-[#4285F4]">m</span>
-              <span className="text-[#34A853]">s</span>
-              <span className="text-[#EA4335]">.live</span>
+              Looms
             </Link>
           </div>
           <div className="flex items-center space-x-6">
             <div className="hidden md:flex space-x-6">
-              <Link href="/" className="text-[#84a9ff] hover:text-[#cfe0ff] font-medium">
+              <Link href="/" className="text-white rounded-full hover:text-[#cfe0ff] font-medium bg-[var(--g-red)] px-5 py-2">
                 Home
               </Link>
-              <Link href="/about" className="text-[#7ee29a] hover:text-[#bff7cf] font-medium">
+              <Link href="/about" className="text-white rounded-full hover:text-[#bff7cf] font-medium bg-[var(--g-green)] px-5 py-2">
                 About
               </Link>
             </div>
