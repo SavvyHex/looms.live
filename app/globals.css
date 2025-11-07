@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
+/* Google brand colors used in the site */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --g-blue: #4285F4;
+  --g-red: #EA4335;
+  --g-yellow: #FBBC05;
+  --g-green: #34A853;
+
+  /* Permanent dark theme (per request) */
+  --bg: #0a0a0a;
+  --fg: #ededed;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
+html, body {
+  background: var(--bg);
+  color: var(--fg);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Utility variables for components that want to reference Google colors */
+.brand-blue { color: var(--g-blue); }
+.brand-red { color: var(--g-red); }
+.brand-yellow { color: var(--g-yellow); }
+.brand-green { color: var(--g-green); }
+
+/* Example: background helpers for dark theme */
+.bg-brand-blue { background-color: var(--g-blue); }
+.bg-brand-red { background-color: var(--g-red); }
+.bg-brand-yellow { background-color: var(--g-yellow); }
+.bg-brand-green { background-color: var(--g-green); }
+

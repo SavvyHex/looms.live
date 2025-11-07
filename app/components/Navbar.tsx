@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="bg-white/80 backdrop-blur-sm">
+    <nav className="bg-slate-900 text-gray-100 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -15,13 +15,15 @@ const Navbar = () => {
               <span className="text-[#EA4335]">.live</span>
             </Link>
           </div>
-          <div className="flex space-x-6">
-            <Link href="/" className="text-[#4285F4] hover:text-[#2b5797] font-medium">
-              Home
-            </Link>
-            <Link href="/about" className="text-[#34A853] hover:text-[#1e7e34] font-medium">
-              About
-            </Link>
+          <div className="flex items-center space-x-6">
+            <div className="hidden md:flex space-x-6">
+              <Link href="/" className="text-[#84a9ff] hover:text-[#cfe0ff] font-medium">
+                Home
+              </Link>
+              <Link href="/about" className="text-[#7ee29a] hover:text-[#bff7cf] font-medium">
+                About
+              </Link>
+            </div>
           </div>
         </div>
       </div>
