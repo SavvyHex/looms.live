@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar';
+import RandomTagline from './components/RandomTagline';
 import Link from 'next/link';
 
 export default function Home() {
@@ -10,9 +11,7 @@ export default function Home() {
           <h1 className="text-7xl md:text-8xl font-light tracking-tight text-[var(--fg)] mb-4">
             Looms <span className="font-bold">Live</span>
           </h1>
-          <p className="text-xl md:text-2xl text-[var(--fg-muted)] font-light mb-12">
-            A sentence a day keeps boredom away.
-          </p>
+          <RandomTagline />
           <Link 
             href="/today"
             className="inline-block text-lg font-medium px-10 py-4 bg-[var(--btn-primary)] text-white rounded-full hover:bg-[var(--btn-primary-hover)] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 transform"
