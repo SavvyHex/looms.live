@@ -2,27 +2,27 @@ import Navbar from '../components/Navbar';
 import Link from 'next/link';
 
 // Mock data - TODO: Replace with API call
-const archivedStories = [
+const archivedPoems = [
   {
     id: '2024-11-07',
     date: 'November 7, 2024',
-    title: 'The Midnight Garden',
-    sentences: 42,
-    excerpt: 'In the heart of the city, there was a garden that only appeared at midnight...',
+    title: 'Midnight Reflections',
+    verses: 42,
+    excerpt: 'The moon hangs low in twilight skies, / A silver coin in darkness cast...',
   },
   {
     id: '2024-11-06',
     date: 'November 6, 2024',
-    title: 'The Last Train',
-    sentences: 38,
-    excerpt: 'The conductor checked his watch one final time before the last train departed...',
+    title: 'Journey\'s End',
+    verses: 38,
+    excerpt: 'The final whistle calls the night, / As travelers board with weary souls...',
   },
   {
     id: '2024-11-05',
     date: 'November 5, 2024',
-    title: 'Whispers in the Library',
-    sentences: 45,
-    excerpt: 'Between the ancient books, a secret language whispered through the shelves...',
+    title: 'Ancient Words',
+    verses: 45,
+    excerpt: 'Between the dusty pages old, / A thousand voices softly speak...',
   },
 ];
 
@@ -34,45 +34,45 @@ export default function ArchivePage() {
         <div className="space-y-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-light tracking-tight text-[var(--fg)] mb-4">
-              Story Archive
+              Poetry Archive
             </h1>
             <p className="text-lg text-[var(--fg-muted)]">
-              Explore past stories woven by our community
+              Explore past poems woven by our community
             </p>
           </div>
 
           <div className="space-y-4">
-            {archivedStories.map((story) => (
+            {archivedPoems.map((poem) => (
               <Link
-                key={story.id}
-                href={`/archive/${story.id}`}
+                key={poem.id}
+                href={`/archive/${poem.id}`}
                 className="block bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-gray-200/50 hover:shadow-md hover:border-[var(--btn-primary)]/30 transition-all duration-300"
               >
                 <div className="flex justify-between items-start mb-3">
                   <h2 className="text-2xl font-medium text-[var(--fg)]">
-                    {story.title}
+                    {poem.title}
                   </h2>
                   <span className="text-sm text-[var(--fg-muted)] whitespace-nowrap ml-4">
-                    {story.date}
+                    {poem.date}
                   </span>
                 </div>
-                <p className="text-[var(--fg-muted)] mb-3">
-                  {story.excerpt}
+                <p className="text-[var(--fg-muted)] mb-3 font-typewriter italic">
+                  {poem.excerpt}
                 </p>
                 <div className="flex items-center text-sm text-[var(--btn-primary)]">
                   <span className="font-typewriter">
-                    {story.sentences} sentences
+                    {poem.verses} verses
                   </span>
-                  <span className="ml-4">→ Read full story</span>
+                  <span className="ml-4">→ Read full poem</span>
                 </div>
               </Link>
             ))}
           </div>
 
-          {archivedStories.length === 0 && (
+          {archivedPoems.length === 0 && (
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-12 shadow-sm border border-gray-200/50 text-center">
               <p className="text-lg text-[var(--fg-muted)]">
-                No archived stories yet. Check back soon!
+                No archived poems yet. Check back soon!
               </p>
             </div>
           )}

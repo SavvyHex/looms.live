@@ -10,11 +10,11 @@ export default function NotFound() {
           <h1 className="text-9xl md:text-[12rem] font-light tracking-tight text-[var(--accent-lavender)] mb-4">
             404
           </h1>
-          <h2 className="text-3xl md:text-4xl font-light text-[var(--fg)] mb-4">
-            Thread Not Found
+                    <h2 className="text-3xl md:text-4xl font-light text-[var(--fg)] mb-4">
+            Verse Not Found
           </h2>
           <p className="text-xl text-[var(--fg-muted)] font-light mb-8">
-            Oops! This string goes nowhere. Let's get you back on track.
+            Oops! This poem seems to have unraveled. Let's get you back on track.
           </p>
           <Link 
             href="/"

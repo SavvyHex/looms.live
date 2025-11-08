@@ -13,11 +13,11 @@ export default function About() {
           <div className="space-y-10 text-lg leading-relaxed">
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-200/50">
               <p className="text-[var(--fg)] mb-4">
-                looms.live is a unique collaborative storytelling platform where every person gets to contribute one sentence per day to an ever-evolving story.
+                looms.live is a unique collaborative poetry platform where every person gets to contribute one 4-line verse per day to an ever-evolving collective poem.
               </p>
               
               <p className="text-[var(--fg-muted)]">
-                Our mission is to weave together the creative voices of people from all around the world, creating narratives that transcend individual perspectives and showcase the beauty of collective storytelling.
+                Our mission is to weave together the creative voices of people from all around the world, creating poetry that transcends individual perspectives and showcases the beauty of collective expression.
               </p>
             </div>
 
@@ -26,19 +26,19 @@ export default function About() {
               <ul className="space-y-3 text-[var(--fg)]">
                 <li className="flex items-start">
                   <span className="text-[var(--accent-coral)] mr-3 mt-1">•</span>
-                  <span>Each day, you can contribute one sentence to the ongoing story.</span>
+                  <span>Each day, you can contribute one 4-line verse to the collective poem.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--accent-peach)] mr-3 mt-1">•</span>
-                  <span>Your sentence will be added to the collective narrative.</span>
+                  <span>Your verse will be woven into today's poetic tapestry.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--accent-mint)] mr-3 mt-1">•</span>
-                  <span>Stories evolve organically, shaped by the creativity of our community.</span>
+                  <span>Poems evolve organically, shaped by the creativity of our community.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--accent-sky)] mr-3 mt-1">•</span>
-                  <span>Previous contributions are preserved and viewable in the story archive.</span>
+                  <span>Previous contributions are preserved and viewable in the poetry archive.</span>
                 </li>
               </ul>
             </div>
@@ -52,11 +52,11 @@ export default function About() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--accent-mint)] mr-3 mt-1">•</span>
-                  <span>Each sentence should meaningfully contribute to the story.</span>
+                  <span>Each verse should be exactly 4 lines (no more, no less).</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--accent-coral)] mr-3 mt-1">•</span>
-                  <span>Respect the narrative direction set by previous contributors.</span>
+                  <span>Let your creativity flow - rhyming is optional but encouraged!</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[var(--accent-sky)] mr-3 mt-1">•</span>

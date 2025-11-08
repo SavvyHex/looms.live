@@ -25,7 +25,7 @@ export default function TodayPage() {
         <div className="space-y-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-light tracking-tight text-[var(--fg)] mb-4">
-              Today's Story
+              Today's Poem
             </h1>
             <p className="text-lg text-[var(--fg-muted)]">
               {new Date().toLocaleDateString('en-US', { 
@@ -37,7 +37,7 @@ export default function TodayPage() {
             </p>
           </div>
 
-          {/* The story so far */}
+          {/* The poem so far */}
           <StoryDisplay />
 
           {/* Contribution form */}

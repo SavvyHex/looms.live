@@ -48,27 +48,36 @@ export default function ProfilePage() {
             </h2>
             <div className="space-y-4">
               <div className="border-l-4 border-[var(--accent-coral)] pl-4 py-2">
-                <p className="text-[var(--fg)] mb-1">
-                  "The moonlight cast strange shadows across the abandoned carnival."
-                </p>
+                <div className="text-[var(--fg)] mb-1 font-typewriter">
+                  <p>The moonlight cast strange shadows there,</p>
+                  <p>Across the carnival of dreams,</p>
+                  <p>Where echoes dance through midnight air,</p>
+                  <p>And nothing's quite the way it seems.</p>
+                </div>
                 <p className="text-sm text-[var(--fg-muted)]">
-                  November 7, 2024 - The Midnight Garden
+                  November 7, 2024 - Midnight Reflections
                 </p>
               </div>
               <div className="border-l-4 border-[var(--accent-mint)] pl-4 py-2">
-                <p className="text-[var(--fg)] mb-1">
-                  "She opened the letter with trembling hands, already knowing what it would say."
-                </p>
+                <div className="text-[var(--fg)] mb-1 font-typewriter">
+                  <p>She opened letters sealed with care,</p>
+                  <p>Her trembling hands already knew,</p>
+                  <p>The words that waited for her there,</p>
+                  <p>Would change the world she thought she knew.</p>
+                </div>
                 <p className="text-sm text-[var(--fg-muted)]">
-                  November 6, 2024 - The Last Train
+                  November 6, 2024 - Journey's End
                 </p>
               </div>
               <div className="border-l-4 border-[var(--accent-lavender)] pl-4 py-2">
-                <p className="text-[var(--fg)] mb-1">
-                  "In the silence, the old clock tower began to chime backwards."
-                </p>
+                <div className="text-[var(--fg)] mb-1 font-typewriter">
+                  <p>In silence deep the tower stands,</p>
+                  <p>Its ancient clock begins to chime,</p>
+                  <p>Backwards flow the grains of sands,</p>
+                  <p>Unraveling the threads of time.</p>
+                </div>
                 <p className="text-sm text-[var(--fg-muted)]">
-                  November 5, 2024 - Whispers in the Library
+                  November 5, 2024 - Ancient Words
                 </p>
               </div>
             </div>

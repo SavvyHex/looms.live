@@ -4,19 +4,19 @@ import { useEffect, useState } from 'react';
 
 const taglines = [
   // Creativity-focused
-  "Weaving stories, one thread at a time.",
-  "Every sentence counts, every voice matters.",
-  "Your daily dose of collaborative creativity.",
-  "Stories woven by you, for everyone.",
+  "Weaving verses, one thread at a time.",
+  "Every verse counts, every voice matters.",
+  "Your daily dose of collaborative poetry.",
+  "Poetry woven by you, for everyone.",
   "Write today, inspire tomorrow.",
-  "Your sentence, our collective masterpiece.",
+  "Your verse, our collective masterpiece.",
   
   // Beautiful chaos
   "Chaos is just creativity in its raw form.",
-  "Where beautiful disorder meets storytelling.",
+  "Where beautiful disorder meets poetry.",
   "Embrace the chaos, create the unexpected.",
   "Organized chaos, unexpected brilliance.",
-  "From disorder comes the most beautiful tales.",
+  "From disorder comes the most beautiful verse.",
   "Chaos weaves the most interesting threads.",
 ];
 
