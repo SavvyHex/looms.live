@@ -19,10 +19,28 @@ const Navbar = () => {
                 Home
               </Link>
               <Link 
+                href="/today" 
+                className="text-[var(--fg)] hover:text-[var(--btn-primary)] font-medium px-4 py-2 rounded-lg transition-colors duration-200"
+              >
+                Today
+              </Link>
+              <Link 
+                href="/archive" 
+                className="text-[var(--fg)] hover:text-[var(--btn-primary)] font-medium px-4 py-2 rounded-lg transition-colors duration-200"
+              >
+                Archive
+              </Link>
+              <Link 
                 href="/about" 
                 className="text-[var(--fg)] hover:text-[var(--btn-primary)] font-medium px-4 py-2 rounded-lg transition-colors duration-200"
               >
                 About
+              </Link>
+              <Link 
+                href="/profile" 
+                className="text-[var(--fg)] hover:text-[var(--btn-primary)] font-medium px-4 py-2 rounded-lg transition-colors duration-200"
+              >
+                Profile
               </Link>
             </div>
           </div>
