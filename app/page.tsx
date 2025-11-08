@@ -16,7 +16,7 @@ export default function Home() {
             href="/today"
             className="inline-block text-lg font-medium px-10 py-4 bg-[var(--btn-primary)] text-white rounded-full hover:bg-[var(--btn-primary-hover)] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 transform"
           >
-            Today's Looms
+            Today's Prompt
           </Link>
         </div>
       </div>
