@@ -33,3 +33,7 @@ html, body {
   color: var(--fg-muted); 
 }
 
+.font-typewriter {
+  font-family: var(--font-typewriter), 'Courier New', monospace;
+}
+
