@@ -61,19 +61,25 @@ export default function StoryDisplay() {
     );
   }
 
+  const colors = [
+    'bg-[var(--accent-coral)]/10 hover:bg-[var(--accent-coral)]/20',
+    'bg-[var(--accent-peach)]/10 hover:bg-[var(--accent-peach)]/20',
+    'bg-[var(--accent-mint)]/10 hover:bg-[var(--accent-mint)]/20',
+    'bg-[var(--accent-lavender)]/10 hover:bg-[var(--accent-lavender)]/20',
+    'bg-[var(--accent-sky)]/10 hover:bg-[var(--accent-sky)]/20',
+  ];
+
   return (
     <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-200/50">
       <h2 className="text-2xl font-medium text-[var(--btn-primary)] mb-6">The Story So Far</h2>
-      <div className="space-y-4">
+      <div className="text-lg text-[var(--fg)] leading-relaxed">
         {sentences.map((sentence, index) => (
-          <div key={sentence.id} className="flex items-start space-x-3">
-            <span className="font-typewriter text-[var(--accent-coral)] font-semibold min-w-[2rem]">
-              {index + 1}.
-            </span>
-            <p className="text-lg text-[var(--fg)] leading-relaxed flex-1">
-              {sentence.text}
-            </p>
-          </div>
+          <span
+            key={sentence.id}
+            className={`${colors[index % colors.length]} px-2 py-1 rounded transition-colors duration-200 inline`}
+          >
+            {sentence.text}{' '}
+          </span>
         ))}
       </div>
       <div className="mt-6 pt-6 border-t border-gray-200">
