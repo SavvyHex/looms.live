@@ -1,32 +1,35 @@
 @import "tailwindcss";
 
-/* Google brand colors used in the site */
+/* Soft, eye-friendly light theme color palette */
 :root {
-  --g-blue: #4285F4;
-  --g-red: #EA4335;
-  --g-yellow: #FBBC05;
-  --g-green: #34A853;
-
-  /* Permanent dark theme (per request) */
-  --bg: #0a0a0a;
-  --fg: #ededed;
+  /* Main background - soft cream/beige */
+  --bg: #faf9f6;
+  
+  /* Text colors */
+  --fg: #2d3748;
+  --fg-muted: #718096;
+  
+  /* Accent colors - soft pastels */
+  --accent-coral: #ff8b94;
+  --accent-peach: #ffaaa5;
+  --accent-mint: #a8e6cf;
+  --accent-lavender: #c7b8ea;
+  --accent-sky: #8ec5fc;
+  
+  /* Button colors */
+  --btn-primary: #7c9cbf;
+  --btn-primary-hover: #6a89ab;
 }
 
 html, body {
   background: var(--bg);
   color: var(--fg);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-nunito), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
 }
 
-/* Utility variables for components that want to reference Google colors */
-.brand-blue { color: var(--g-blue); }
-.brand-red { color: var(--g-red); }
-.brand-yellow { color: var(--g-yellow); }
-.brand-green { color: var(--g-green); }
-
-/* Example: background helpers for dark theme */
-.bg-brand-blue { background-color: var(--g-blue); }
-.bg-brand-red { background-color: var(--g-red); }
-.bg-brand-yellow { background-color: var(--g-yellow); }
-.bg-brand-green { background-color: var(--g-green); }
+/* Utility classes */
+.text-muted { 
+  color: var(--fg-muted); 
+}
 

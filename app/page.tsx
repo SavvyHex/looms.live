@@ -1,23 +1,26 @@
-import LoomBackground from './components/LoomBackground';
 import Navbar from './components/Navbar';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main>
-      <LoomBackground />
-      {/* <Navbar />
-      <div className="flex-1 flex flex-col items-center justify-center p-4">
-        <h1 className="text-8xl font-bold mb-12 tracking-tight">
-          Looms Live
-        </h1>
-        <Link 
-          href="/today"
-          className="text-xl px-12 py-5 bg-[#4285F4] text-white rounded-full hover:bg-[#2b5797] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transform hover:-translate-y-0.5"
-        >
-          View Today's Looms
-        </Link>
-      </div> */}
+    <main className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className="flex-1 flex flex-col items-center justify-center px-4">
+        <div className="text-center space-y-8 max-w-2xl">
+          <h1 className="text-7xl md:text-8xl font-light tracking-tight text-[var(--fg)] mb-4">
+            Looms <span className="font-bold">Live</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-[var(--fg-muted)] font-light mb-12">
+            A sentence a day keeps boredom away.
+          </p>
+          <Link 
+            href="/today"
+            className="inline-block text-lg font-medium px-10 py-4 bg-[var(--btn-primary)] text-white rounded-full hover:bg-[var(--btn-primary-hover)] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 transform"
+          >
+            Today's Looms
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }
