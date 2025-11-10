@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar';
+import DailyTitle from '../components/DailyTitle';
 
 function StoryDisplay() {
   return (
@@ -35,6 +36,7 @@ export default function TodayPage() {
                 day: 'numeric' 
               })}
             </p>
+            <DailyTitle />
           </div>
 
           {/* The poem so far */}
