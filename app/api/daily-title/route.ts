@@ -1,7 +1,40 @@
 import { NextRequest, NextResponse } from 'next/server';
+import * as fs from 'fs';
+import * as path from 'path';
 
-// Simple in-memory cache (resets on server restart; fine for serverless)
-const cache: Map<string, { title: string; expiry: number }> = new Map();
+// File-based cache to persist across server restarts
+const CACHE_FILE = path.join(process.cwd(), '.cache', 'daily-title.json');
+
+// Ensure cache directory exists
+function ensureCacheDir() {
+  const dir = path.dirname(CACHE_FILE);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+}
+
+// Load cache from file
+function loadCache(): { date: string; title: string; source: string } | null {
+  try {
+    if (fs.existsSync(CACHE_FILE)) {
+      const data = fs.readFileSync(CACHE_FILE, 'utf-8');
+      return JSON.parse(data);
+    }
+  } catch (err) {
+    console.error('Failed to load cache:', err);
+  }
+  return null;
+}
+
+// Save cache to file
+function saveCache(date: string, title: string, source: string) {
+  try {
+    ensureCacheDir();
+    fs.writeFileSync(CACHE_FILE, JSON.stringify({ date, title, source }, null, 2));
+  } catch (err) {
+    console.error('Failed to save cache:', err);
+  }
+}
 
 // Helper: seconds until next UTC midnight
 function secondsUntilNextMidnight(): number {
@@ -116,29 +149,27 @@ async function callGemini(prompt: string): Promise<string | null> {
 export async function GET(req: NextRequest) {
   try {
     const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD UTC
-    const cacheKey = `daily-title:${today}`;
 
-    // Check cache
-    const cached = cache.get(cacheKey);
-    if (cached && cached.expiry > Date.now()) {
+    // Check file-based cache
+    const cached = loadCache();
+    if (cached && cached.date === today) {
+      console.log(`✓ Using cached title from ${cached.date}: "${cached.title}" (${cached.source})`);
       return NextResponse.json({ title: cached.title, source: 'cache' });
     }
 
     // Try AI generation
+    console.log(`Generating new title for ${today}...`);
     const prompt = `You are a poet. Generate ONLY a short, evocative poem title (4-7 words). Examples: "Silent Harbor", "The Silver Thread", "Echoes of Tomorrow". Generate a new unique title now:`;
     const aiTitle = await callGemini(prompt);
 
-    const ttl = secondsUntilNextMidnight();
-    const expiry = Date.now() + ttl * 1000;
-
     if (aiTitle) {
-      cache.set(cacheKey, { title: aiTitle, expiry });
+      saveCache(today, aiTitle, 'gemini');
       return NextResponse.json({ title: aiTitle, source: 'gemini' });
     }
 
     // Fallback to deterministic generator
     const fallbackTitle = deterministicTitle(today);
-    cache.set(cacheKey, { title: fallbackTitle, expiry });
+    saveCache(today, fallbackTitle, 'fallback');
     return NextResponse.json({ title: fallbackTitle, source: 'fallback' });
   } catch (err) {
     console.error('API route error:', err);
