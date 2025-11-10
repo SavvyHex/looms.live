@@ -28,6 +28,17 @@ html, body {
   min-height: 100vh;
 }
 
+/* Custom text selection color */
+::selection {
+  background-color: #ff8b94 !important;
+  color: white !important;
+}
+
+::-moz-selection {
+  background-color: #ff8b94 !important;
+  color: white !important;
+}
+
 /* Utility classes */
 .text-muted { 
   color: var(--fg-muted); 
