@@ -67,7 +67,7 @@ export default function TodayPage() {
               </div>
             </div>
           ) : (
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-200/50">
+            <div className="bg-[var(--accent-lavender)]/8 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-[var(--accent-coral)]/30">
               <h2 className="text-2xl font-medium text-[var(--btn-primary)] mb-2">
                 Add Your Verse
               </h2>
@@ -75,7 +75,7 @@ export default function TodayPage() {
                 Contribute your 4-line verse to today's collaborative poem
               </p>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="border border-gray-300 rounded-xl overflow-hidden focus-within:border-[var(--btn-primary)] focus-within:ring-2 focus-within:ring-[var(--btn-primary)]/20 transition-all bg-white">
+                <div className="border border-[var(--accent-coral)]/30 rounded-xl overflow-hidden focus-within:border-[var(--accent-coral)] focus-within:ring-2 focus-within:ring-[var(--accent-coral)]/20 transition-all bg-[var(--accent-coral)]/5">
                   {lines.map((line, index) => (
                     <input
                       key={index}
@@ -83,8 +83,8 @@ export default function TodayPage() {
                       value={line}
                       onChange={(e) => handleLineChange(index, e.target.value)}
                       placeholder={`Line ${index + 1}...`}
-                      className={`w-full px-4 py-3 text-[var(--fg)] bg-white font-typewriter outline-none ${
-                        index < 3 ? 'border-b border-gray-200' : ''
+                      className={`w-full px-4 py-3 text-[var(--fg)] bg-transparent font-typewriter outline-none placeholder:text-[var(--fg-muted)]/60 ${
+                        index < 3 ? 'border-b border-[var(--accent-coral)]/20' : ''
                       }`}
                       maxLength={80}
                       disabled={isSubmitting}
