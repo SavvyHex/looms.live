@@ -5,7 +5,7 @@
 create table if not exists prompts (
   id uuid primary key default gen_random_uuid(),
   prompt_text text not null,
-  prompt_day date not null,
+  prompt_day date not null
 );
 
 -- Optional: avoid exact duplicate prompt for the same day
