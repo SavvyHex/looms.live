@@ -1,14 +1,45 @@
 import os
 import logging
 import datetime
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Response
 from fastapi.responses import JSONResponse
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from .daily_title import load_cache, save_cache, deterministic_title, call_gemini
+from .scheduler import generate_and_save_daily_title
 
 logger = logging.getLogger("uvicorn.error")
 
-app = FastAPI(title="Looms Daily Title")
+# Initialize scheduler
+scheduler = AsyncIOScheduler()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Manage app startup and shutdown (FastAPI 0.93+)"""
+    # Startup: configure and start scheduler
+    logger.info("Starting APScheduler...")
+    scheduler.add_job(
+        generate_and_save_daily_title,
+        trigger="cron",
+        hour=0,
+        minute=0,
+        timezone="UTC",
+        id="daily_title_generator",
+        name="Generate daily title at midnight UTC"
+    )
+    scheduler.start()
+    logger.info("✓ Scheduler started; daily title generation scheduled for 00:00 UTC")
+    
+    yield
+    
+    # Shutdown: stop scheduler
+    logger.info("Shutting down APScheduler...")
+    scheduler.shutdown()
+
+
+app = FastAPI(title="Looms Daily Title", lifespan=lifespan)
 
 
 @app.get("/daily-title")
@@ -40,3 +71,4 @@ async def get_daily_title():
         today = datetime.datetime.utcnow().date().isoformat()
         fallback = deterministic_title(today)
         return JSONResponse({"title": fallback, "source": "error-fallback"}, status_code=500)
+
