@@ -119,7 +119,7 @@ async def call_gemini(prompt: str) -> Optional[str]:
                 candidates = data.get("candidates") or []
                 if candidates and candidates[0].get("content") and candidates[0]["content"].get("parts"):
                     text = candidates[0]["content"]["parts"][0].get("text", "").strip()
-                    clean = text.strip('"\\'')
+                    clean = text.strip('"\'')
                     logger.info(f"✓ Generated title via Gemini: \"{clean}\"")
                     return clean
             except Exception:
