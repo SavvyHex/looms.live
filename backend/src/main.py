@@ -8,6 +8,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from .daily_title import load_cache, save_cache, deterministic_title, call_gemini
 from .scheduler import generate_and_save_daily_title
+from .supabase_client import insert_prompt
 
 logger = logging.getLogger("uvicorn.error")
 
@@ -61,10 +62,12 @@ async def get_daily_title():
         ai_title = await call_gemini(prompt)
         if ai_title:
             save_cache(today, ai_title, "gemini")
+            insert_prompt(ai_title, today, "gemini")
             return JSONResponse({"title": ai_title, "source": "gemini"})
 
         fallback = deterministic_title(today)
         save_cache(today, fallback, "fallback")
+        insert_prompt(fallback, today, "fallback")
         return JSONResponse({"title": fallback, "source": "fallback"})
     except Exception as exc:
         logger.exception("API route error: %s", exc)
