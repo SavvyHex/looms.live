@@ -30,13 +30,13 @@ html, body {
 
 /* Custom text selection color */
 ::selection {
-  background-color: #ff8b94 !important;
-  color: white !important;
+  background-color: #c7b8ea !important;
+  color: #2d3748 !important;
 }
 
 ::-moz-selection {
-  background-color: #ff8b94 !important;
-  color: white !important;
+  background-color: #c7b8ea !important;
+  color: #2d3748 !important;
 }
 
 /* Utility classes */
