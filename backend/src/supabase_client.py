@@ -23,7 +23,6 @@ def insert_prompt(prompt_text: str, prompt_day: str, source: str = "system") -> 
     Args:
         prompt_text: The prompt text
         prompt_day: Date in YYYY-MM-DD format
-        source: Source of the prompt (e.g., 'system', 'gemini', 'fallback')
     
     Returns:
         True if successful, False otherwise
@@ -35,10 +34,9 @@ def insert_prompt(prompt_text: str, prompt_day: str, source: str = "system") -> 
     try:
         result = supabase.table("prompts").insert({
             "prompt_text": prompt_text,
-            "prompt_day": prompt_day,
-            "source": source
+            "prompt_day": prompt_day
         }).execute()
-        logger.info(f"✓ Inserted prompt: {prompt_text[:50]}... for {prompt_day}")
+        logger.info(f"✓ Inserted prompt: {prompt_text[:50]}... for {prompt_day} (source: {source})")
         return True
     except Exception as exc:
         logger.exception(f"Failed to insert prompt: {exc}")
